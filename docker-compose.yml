@@ -1,0 +1,21 @@
+# docker-compose.yml
+version: "3.7"
+
+services:
+  go-todo:
+    container_name: qsolink
+    image: absenth/qsolink:dev
+    build:
+      context: .
+      target: dev
+    volumes:
+      - .:/app
+    ports:
+      - "5001:5001"
+      - "2345:2345"
+    networks:
+      - go-qsolink-network
+
+networks:
+  go-qsolink-network:
+    name: go-qsolink-network
