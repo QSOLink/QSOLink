@@ -15,6 +15,22 @@ services:
       - "2345:2345"
     networks:
       - go-qsolink-network
+    QSOLink-DB:
+      container_name: qsolink-db
+      image: postgres
+      environment:
+        - POSTGRES_USER=${DB_USER}
+        - POSTGRES_PASSWORD=${DB_PASSWORD}
+        - POSTGRES_DB=${DB_NAME}
+      volumes:
+        - qsolink-db:/var/lib/postgresql/data
+      ports:
+        - "5432:5432"
+      networks:
+        - go-qsolink-network
+
+volumes:
+  qsolink-db:
 
 networks:
   go-qsolink-network:
