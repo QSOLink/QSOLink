@@ -10,13 +10,11 @@ Future goals will include writing a Terminal User Interface front end, inspired 
 I will be working on this project as part of #100DaysOfCode officially starting on September 18, 2023.
 
 ### Dependencies Installation
-```
-$ #FIXME
-```
+ensure you have docker and docker compose installed and working.
 
 ### Running QSLlink for development
 ```
-$ #FIXME
+$ docker compose up
 ```
 
 ### Future Integrations

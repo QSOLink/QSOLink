@@ -1,22 +1,23 @@
-FROM golang:1.21-alpine
+FROM golang:1.21.3-alpine AS base
 WORKDIR /app
 
-ENV GO11MODULE="on"
+ENV GO111MODULE="on"
 ENV GOOS="linux"
 ENV CGO_ENABLED=0
 
 RUN apk update \
-  && apk add --no-cache \
-  ca-certificates \
-  curl \
-  tzdata \
-  git \
-  && update-ca-certificates
+    && apk add --no-cache \
+    ca-certificates \
+    curl \
+    tzdata \
+    git \
+    && update-ca-certificates
 
 FROM base AS dev
 WORKDIR /app
 
-RUN go get -u github.com/cosmtrek/air && go install github.com/go-delve/delve/cmd/dlv@latest
+RUN go install github.com/cosmtrek/air@latest && go install github.com/go-delve/delve/cmd/dlv@latest
+
 EXPOSE 5001
 EXPOSE 2345
 
@@ -27,7 +28,7 @@ WORKDIR /app
 
 COPY . /app
 RUN go mod download \
-  && go mod verify
+    && go mod verify
 
 RUN go build -o qsolink -a .
 

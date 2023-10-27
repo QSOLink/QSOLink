@@ -2,7 +2,7 @@
 version: "3.7"
 
 services:
-  go-todo:
+  QSOLink:
     container_name: qsolink
     image: absenth/qsolink:dev
     build:
