@@ -75,9 +75,21 @@ func (handler *QsoHandler) Update(c *fiber.Ctx) error {
 		return c.Status(400).JSON(fiber.Map{"status": "error", "message": "Review your input", "data": err})
 	}
 
-	qso.Name = qsoData.Name
-	qso.Description = qsoData.Description
-	qso.Status = qsoData.Status
+	qso.Dateon = qsoData.Dateon
+	qso.Timeon = qsoData.Timeon
+	qso.Callsign = qsoData.Callsign
+	qso.Band = qsoData.Band
+	qso.Mode = qsoData.Mode
+	qso.City = qsoData.City
+	qso.State = qsoData.State
+	qso.County = qsoData.County
+	qso.Country = qsoData.Country
+	qso.Qslr = qsoData.Qslr
+	qso.Qsls = qsoData.Qsls
+	qso.Rstr = qsoData.Rstr
+	qso.Rsts = qsoData.Rsts
+	qso.Power = qsoData.Power
+	qso.Remarks = qsoData.Remarks
 
 	item, err := handler.repository.Save(qso)
 
