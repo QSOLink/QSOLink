@@ -16,7 +16,7 @@ func (repository *QsoRepository) FindAll() []Qso {
 	return qsos
 }
 
-func (repository *Qsorepository) Find(id int) (Qso, error) {
+func (repository *QsoRepository) Find(id int) (Qso, error) {
 	var qso Qso
 	err := repository.database.Find(&qso, id).Error
 	if qso.Callsign == "" {

@@ -1,15 +1,13 @@
 package qso
 
 import (
-	"time"
-
 	"github.com/jinzhu/gorm"
 )
 
 type Qso struct {
 	gorm.Model
-	Dateon   time.Date `json:"dateon"`
-	Timeon   time.Time `json:"timeon"`
+	Dateon   string `json:"dateon"`
+	Timeon   string `json:"timeon"`
 	Callsign string    `gorm:"Not Null" json:"callsign"`
 	Band     int       `gorm:"Not Null" json:"band"`
 	Mode     string    `gorm:"Not Null" json:"mode"`

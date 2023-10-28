@@ -3,9 +3,9 @@ package database
 import(
   "fmt"
   "strconv"
-  
+
   "github.com/QSOLink/QSOLink/config"
-  
+
   "github.com/jinzhu/gorm"
   _ "github.com/lib/pq"
 )
@@ -26,7 +26,7 @@ func ConnectDB() {
 
   DB, err = gorm.Open(
     "postgres",
-    configData
+    configData,
     )
 
   if err != nil {
