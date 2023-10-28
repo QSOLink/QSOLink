@@ -10,13 +10,11 @@ import (
 func main() {
 	app := fiber.New()
 	app.Use(cors.New())
+	database.ConnectDB()
+	defer database.DB.Close()
 
 	api := app.Group("/api")
-
-	// Test handler
-	api.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("App running")
-	})
+	qso.Register(api, database.Db)
 
 	log.Fatal(app.Listen(":5001"))
 }
