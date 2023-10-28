@@ -16,6 +16,73 @@ ensure you have docker and docker compose installed and working.
 ```
 $ docker compose up
 ```
+### Manual testing with curl
+#### Adding a qso
+```
+curl -X 'POST' \
+  'http://127.0.0.1:5001/api/qso/' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "dateon": "2023-10-28",
+  "timeon": "16:34:58.947Z",
+  "callsign": "W1AW",
+  "band": 20,
+  "mode": "cw",
+  "city": "New Haven",
+  "state": "CT",
+  "county": "New Haven",
+  "country": "USA",
+  "name": "John Smith",
+  "qslr": false,
+  "qsls": false,
+  "rstr": 599,
+  "rsts": 599,
+  "power": 100,
+  "remarks": "This is a test contact with W1AW"
+}'
+```
+
+#### Getting all qsos
+```
+curl -X 'GET' \
+  'http://127.0.0.1:5001/api/qso/' \
+  -H 'accept: application/json'
+```
+
+#### Updating a qso
+This will update the record #1.
+```
+curl -X 'PUT' \
+  'http://127.0.0.1:5001:/api/qso/1'
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "dateon": "2023-10-28",
+  "timeon": "16:38:02.219Z",
+  "callsign": "W1AW",
+  "band": 20,
+  "mode": "SSB",
+  "city": "New Haven",
+  "state": "CT",
+  "county": "New Haven",
+  "country": "USA",
+  "name": "Joe Smith",
+  "qslr": false,
+  "qsls": false,
+  "rstr": 599,
+  "rsts": 599,
+  "power": 100,
+  "remarks": "This is also a test"
+}'
+```
+
+#### Removing a qso
+```
+curl -X 'DELETE' \
+  'http://127.0.0.1:5001/api/qso/1'
+  -H 'accept: application/json' \
+```
 
 ### Future Integrations
 I think integrating with a callsign lookup database like [HamDB.org](https://hamdb.org/api) or [callbook.info](https://callook.info/api_reference.php) would be fantastic.
