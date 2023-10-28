@@ -16,7 +16,7 @@ func main() {
 	defer database.DB.Close()
 
 	api := app.Group("/api")
-	qso.Register(api, database.Db)
+	qso.Register(api, database.DB)
 
 	log.Fatal(app.Listen(":5001"))
 }
