@@ -3,10 +3,10 @@ package main
 import (
 	"log"
 
+	"github.com/QSOLink/QSOLink/database"
+	"github.com/QSOLink/QSOLink/qso"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
-    "github.com/QSOLink/QSOLink/database"
-    "github.com/QSOLink/QSOLink/qso"
 )
 
 func main() {
