@@ -54,7 +54,7 @@ curl -X 'GET' \
 This will update the record #1.
 ```
 curl -X 'PUT' \
-  'http://127.0.0.1:5001:/api/qso/1'
+  'http://127.0.0.1:5001/api/qso/1'
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
