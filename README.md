@@ -16,6 +16,12 @@ ensure you have docker and docker compose installed and working.
 ```
 $ docker compose up
 ```
+
+### Regenerate Swagger docs
+```
+$ swag init --parseDependency && swag fmt
+```
+
 ### Manual testing with curl
 #### Adding a qso
 ```
