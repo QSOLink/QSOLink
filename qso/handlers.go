@@ -11,11 +11,25 @@ type QsoHandler struct {
 	repository *QsoRepository
 }
 
+// GetAll
+//	@Summary	Get all QSO records
+//	@Tags		QSO
+//	@Produce	json
+//	@Success	200	{array}	Qso
+//	@Router		/api/qso [get]
 func (handler *QsoHandler) GetAll(c *fiber.Ctx) error {
 	var qsos []Qso = handler.repository.FindAll()
 	return c.JSON(qsos)
 }
 
+// Get
+//	@Summary	Get QSO record by ID
+//	@Tags		QSO
+//	@Produce	json
+//	@Param		id	path		int	true	"QSO ID"
+//	@Success	200	{object}	Qso
+//	@Failure	404	{object}	object
+//	@Router		/api/qso/{id} [get]
 func (handler *QsoHandler) Get(c *fiber.Ctx) error {
 	id, err := strconv.Atoi(c.Params("id"))
 	qso, err := handler.repository.Find(id)
@@ -30,6 +44,16 @@ func (handler *QsoHandler) Get(c *fiber.Ctx) error {
 	return c.JSON(qso)
 }
 
+// Create
+//	@Summary	Create QSO record
+//	@Tags		QSO
+//	@Accept		json
+//	@Produce	json
+//	@Param		request	body		Qso	true	"QSO data"
+//	@Success	200		{object}	Qso
+//	@Failure	400		{object}	object
+//	@Failure	500		{object}	object
+//	@Router		/api/qso [post]
 func (handler *QsoHandler) Create(c *fiber.Ctx) error {
 	data := new(Qso)
 
@@ -50,6 +74,18 @@ func (handler *QsoHandler) Create(c *fiber.Ctx) error {
 	return c.JSON(item)
 }
 
+// Update
+//	@Summary	Update QSO record by ID
+//	@Tags		QSO
+//	@Accept		json
+//	@Produce	json
+//	@Param		id		path		int	true	"QSO ID"
+//	@Param		request	body		Qso	true	"QSO data"
+//	@Success	200		{object}	Qso
+//	@Failure	400		{object}	object
+//	@Failure	404		{object}	object
+//	@Failure	500		{object}	object
+//	@Router		/api/qso/{id} [put]
 func (handler *QsoHandler) Update(c *fiber.Ctx) error {
 	id, err := strconv.Atoi(c.Params("id"))
 
@@ -103,6 +139,15 @@ func (handler *QsoHandler) Update(c *fiber.Ctx) error {
 	return c.JSON(item)
 }
 
+// Delete
+//	@Summary	Delete QSO record by ID
+//	@Tags		QSO
+//	@Produce	json
+//	@Param		id	path	int	true	"QSO ID"
+//	@Success	204
+//	@Failure	400	{object}	object
+//	@Failure	404	{object}	object
+//	@Router		/api/qso/{id} [delete]
 func (handler *QsoHandler) Delete(c *fiber.Ctx) error {
 	id, err := strconv.Atoi(c.Params("id"))
 	if err != nil {
