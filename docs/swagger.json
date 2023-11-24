@@ -202,25 +202,31 @@
             "type": "object",
             "properties": {
                 "band": {
-                    "type": "integer"
+                    "type": "integer",
+                    "example": 20
                 },
                 "callsign": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "W1AW"
                 },
                 "city": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "New Haven"
                 },
                 "country": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "USA"
                 },
                 "county": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "New Haven"
                 },
                 "createdAt": {
                     "type": "string"
                 },
                 "dateon": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "2023-10-28"
                 },
                 "deletedAt": {
                     "type": "string"
@@ -229,34 +235,44 @@
                     "type": "integer"
                 },
                 "mode": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "cw"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "John Smith"
                 },
                 "power": {
-                    "type": "integer"
+                    "type": "integer",
+                    "example": 100
                 },
                 "qslr": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "example": false
                 },
                 "qsls": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "example": false
                 },
                 "remarks": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "This is a test contact with W1AW"
                 },
                 "rstr": {
-                    "type": "integer"
+                    "type": "integer",
+                    "example": 599
                 },
                 "rsts": {
-                    "type": "integer"
+                    "type": "integer",
+                    "example": 599
                 },
                 "state": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "CT"
                 },
                 "timeon": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "16:34:58.947Z"
                 },
                 "updatedAt": {
                     "type": "string"

@@ -6,20 +6,20 @@ import (
 
 type Qso struct {
 	gorm.Model
-	Dateon   string `json:"dateon"`
-	Timeon   string `json:"timeon"`
-	Callsign string `gorm:"Not Null" json:"callsign"`
-	Band     int    `gorm:"Not Null" json:"band"`
-	Mode     string `gorm:"Not Null" json:"mode"`
-	City     string `json:"city"`
-	State    string `json:"state"`
-	County   string `json:"county"`
-	Country  string `json:"country"`
-	Name     string `json:"name"`
-	Qslr     bool   `json:"qslr"`
-	Qsls     bool   `json:"qsls"`
-	Rstr     int    `json:"rstr"`
-	Rsts     int    `json:"rsts"`
-	Power    int    `json:"power"`
-	Remarks  string `json:"remarks"`
+	Dateon   string `json:"dateon" example:"2023-10-28"`
+	Timeon   string `json:"timeon" example:"16:34:58.947Z"`
+	Callsign string `gorm:"Not Null" json:"callsign" example:"W1AW"`
+	Band     int    `gorm:"Not Null" json:"band" example:"20"`
+	Mode     string `gorm:"Not Null" json:"mode" example:"cw"`
+	City     string `json:"city" example:"New Haven"`
+	State    string `json:"state" example:"CT"`
+	County   string `json:"county" example:"New Haven"`
+	Country  string `json:"country" example:"USA"`
+	Name     string `json:"name" example:"John Smith"`
+	Qslr     bool   `json:"qslr" example:"false"`
+	Qsls     bool   `json:"qsls" example:"false"`
+	Rstr     int    `json:"rstr" example:"599"`
+	Rsts     int    `json:"rsts" example:"599"`
+	Power    int    `json:"power" example:"100"`
+	Remarks  string `json:"remarks" example:"This is a test contact with W1AW"`
 }

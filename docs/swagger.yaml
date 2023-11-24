@@ -2,42 +2,58 @@ definitions:
   qso.Qso:
     properties:
       band:
+        example: 20
         type: integer
       callsign:
+        example: W1AW
         type: string
       city:
+        example: New Haven
         type: string
       country:
+        example: USA
         type: string
       county:
+        example: New Haven
         type: string
       createdAt:
         type: string
       dateon:
+        example: "2023-10-28"
         type: string
       deletedAt:
         type: string
       id:
         type: integer
       mode:
+        example: cw
         type: string
       name:
+        example: John Smith
         type: string
       power:
+        example: 100
         type: integer
       qslr:
+        example: false
         type: boolean
       qsls:
+        example: false
         type: boolean
       remarks:
+        example: This is a test contact with W1AW
         type: string
       rstr:
+        example: 599
         type: integer
       rsts:
+        example: 599
         type: integer
       state:
+        example: CT
         type: string
       timeon:
+        example: 16:34:58.947Z
         type: string
       updatedAt:
         type: string
