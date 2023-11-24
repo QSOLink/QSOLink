@@ -16,7 +16,9 @@ RUN apk update \
 FROM base AS dev
 WORKDIR /app
 
-RUN go install github.com/cosmtrek/air@latest && go install github.com/go-delve/delve/cmd/dlv@latest
+RUN go install github.com/cosmtrek/air@latest \
+    && go install github.com/go-delve/delve/cmd/dlv@latest \
+    && go install github.com/swaggo/swag/cmd/swag@latest
 
 EXPOSE 5001
 EXPOSE 2345
@@ -29,6 +31,10 @@ WORKDIR /app
 COPY . /app
 RUN go mod download \
     && go mod verify
+
+RUN go install github.com/swaggo/swag/cmd/swag@latest
+RUN swag init --parseDependency \
+    && swag fmt
 
 RUN go build -o qsolink -a .
 
